@@ -14,6 +14,6 @@ export const trySignIn = (username, password) => {
     });
 }
 
-export const tryLogOut = () => localStorage.removeItem('jwt');
+export const trySignOut = () => localStorage.removeItem('jwt');
 
 export const checkSignedIn = () => localStorage.getItem('jwt');
