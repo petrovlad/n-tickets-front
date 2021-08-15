@@ -1,6 +1,5 @@
 import React, {Fragment} from "react";
 import {NavLink} from "react-router-dom";
-import {checkSignedIn} from "../services/api/auth-service";
 import AuthContext from "../context/auth-context";
 
 export const Home = () => {
