@@ -3,9 +3,10 @@ import {Ticket} from "./Ticket";
 
 export const TicketsList = (props) => {
   const tickets = props.tickets;
+
   return (tickets ?
     <ul className="list-group">
-      {tickets.map((ticket) => (
+      {tickets.sort((a, b) => a.uniqueHash > b.uniqueHash).map((ticket) => (
         <li className="list-group-item" key={ticket.uniqueHash}>
           <Ticket value={ticket} />
         </li>

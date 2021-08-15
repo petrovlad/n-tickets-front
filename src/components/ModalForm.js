@@ -1,22 +1,104 @@
-import React, {useState, useContext} from "react";
+import React, {useContext, useState} from "react";
+import TicketsContext from "../context/tickets-context";
+import {trySignIn} from "../services/api/auth-service";
+import {putTicket} from "../services/api/tickets-service";
 
-export const Form = () => {
-  const [value, setValue] = useState('')
+export const ModalForm = (props) => {
+
+  const {selectedTicket, setSelectedTicket} = useContext(TicketsContext);
+
+  let title = selectedTicket.title;
+  let content = selectedTicket.content;
+  let showWarning = selectedTicket.showWarning;
+  let readsCount = selectedTicket.readingsCount;
+  let hash = selectedTicket.uniqueHash;
+
+  const titleUpdated = (newValue) => { title = newValue };
+  const contentUpdated = (newValue) => { content = newValue };
+  const showWarningUpdated = (newValue) => { showWarning = newValue };
+  const readsCountUpdated = (newValue) => { readsCount = newValue };
+
+  const formSubmitted = (event) => {
+    event.preventDefault();
+
+    putTicket({title, content, showWarning, readingsCount:readsCount, uniqueHash: hash})
+      .then(response => {
+        console.log(response);
+        window.location.reload();
+      })
+  }
 
   return (
-    <div className="modal-dialog modal-dialog-centered" style="width: 400px;">
-      <div className="modal-content p-3">
-        <form noValidate="" className="ng-untouched ng-pristine ng-valid">
-          <div className="modal-header"><h5 id="staticBackdropLabel" className="modal-title">Edit or create field</h5>
-            <button type="button" data-bs-dismiss="modal" aria-label="Close" className="btn-close"/>
-          </div>
-          <div className="modal-footer">
-            <button type="button" data-bs-dismiss="modal" className="btn btn-secondary">Cancel
-            </button>
-            <button type="submit" data-bs-dismiss="modal" className="btn btn-primary">Save
-            </button>
-          </div>
-        </form>
+    <div className="modal fade" id="exampleModalCenter" tabIndex="-1" aria-labelledby="exampleModalCenterTitle"
+         style={{display: "none"}} aria-modal="true" role="dialog">
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <form onSubmit={formSubmitted}>
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalCenterTitle">Edit ticket</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
+            </div>
+            <div className="modal-body">
+
+              <div className="mb-3 row">
+                <div className="input-group">
+                  <span className="input-group-text" id="basic-addon1">Title</span>
+                  <input type="text"
+                         id="title"
+                         name="title"
+                         className="form-control"
+                         aria-describedby="basic-addon1"
+                         defaultValue={title}
+                         onChange={(event => titleUpdated(event.target.value))}
+                         required/>
+                </div>
+              </div>
+
+              <div className="mb-3 row">
+                <div className="input-group">
+                  <span className="input-group-text" id="basic-addon1">content</span>
+                  <textarea className="form-control"
+                            aria-label="With textarea"
+                            id="content"
+                            onChange={(event => contentUpdated(event.target.value))}
+                            aria-describedby="basic-addon1"
+                            defaultValue={content}
+                            required/>
+                </div>
+              </div>
+
+              <div className="mb-3 row">
+                <div className="input-group">
+                  <span className="input-group-text" id="basic-addon-count">Readings count</span>
+                  <input type="number"
+                         id="count"
+                         name="count"
+                         className="form-control"
+                         aria-describedby="basic-addon-count"
+                         defaultValue={readsCount}
+                         onChange={(event => readsCountUpdated(event.target.value))}
+                         required/>
+                </div>
+              </div>
+
+
+              <div className="form-check form-switch">
+                <input className="form-check-input"
+                       type="checkbox"
+                       id="flexSwitchCheckDefault"
+                       defaultChecked={showWarning}
+                       onChange={(event => showWarningUpdated(event.target.value))}
+                />
+                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Show warning</label>
+              </div>
+            </div>
+
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" className="btn btn-primary">Save changes</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   )
