@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import {TicketsList} from "../components/TicketsList";
 import AuthContext from "../context/auth-context";
 import {Redirect} from "react-router-dom";
-import {getTickets} from "../services/api/show-tickets-service";
+import {getTickets} from "../services/api/tickets-service";
 
-export const ShowTickets = () => {
+export const Tickets = () => {
   console.log("show tickets")
   const [tickets, setTickets] = useState([]);
   const [flag, setFlag] = useState(false);
