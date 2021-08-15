@@ -30,7 +30,7 @@ export const SignUp = () => {
         <div className="form-floating">
           <input
             type="email"
-            className="form-control mb-1"
+            className="form-control"
             id="floatingEmail"
             placeholder="Your email"
             onChange={event => emailUpdated(event.target.value)}
