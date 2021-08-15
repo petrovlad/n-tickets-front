@@ -4,7 +4,7 @@ import AuthContext from "../context/auth-context";
 import {Redirect} from "react-router-dom";
 import {getTickets} from "../services/api/show-tickets-service";
 
-export const ShowTickets = () => {
+export const Tickets = () => {
   console.log("show tickets")
   const [tickets, setTickets] = useState([]);
   const [flag, setFlag] = useState(false);
