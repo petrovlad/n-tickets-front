@@ -1,12 +1,12 @@
 import React from "react";
 
-export default function TicketsList(props) {
-  let tickets = props.tickets;
-  return (
+export const TicketsList = (props) => {
+  const tickets = props.tickets;
+  return (tickets ?
     <ul className="list-group">
-      {tickets.map(ticket => (
-        <li className="list-group-item" key={ticket.id}>{ticket.title}</li>
+      {tickets.map((ticket) => (
+        <li className="list-group-item" key={ticket.uniqueHash}>{ticket.title}</li>
       ))}
-    </ul>
+    </ul> : <p>You have no tickets yet</p>
   )
 }
