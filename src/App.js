@@ -6,6 +6,7 @@ import {SignIn} from "./pages/SignIn";
 import {SignUp} from "./pages/SignUp";
 import {Navbar} from "./components/Navbar";
 import {AlertState} from "./context/alert/AlertState";
+import {ShowTicket} from "./pages/ShowTicket";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path={'/signup'} exact component={SignUp}/>
             <Route path={'/signin'} exact component={SignIn}/>
             <Route path={'/tickets'} exact component={Tickets}/>
+            <Route path={'/ticket-:hash'} component={ShowTicket}/>
           </Switch>
         </div>
       </BrowserRouter>
