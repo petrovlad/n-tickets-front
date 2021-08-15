@@ -1,24 +1,27 @@
-import React, {useState} from "react";
+import React, {useContext} from "react";
 import {trySignIn} from "../services/api/auth-service";
 import {Redirect} from "react-router-dom";
+import AuthContext from "../context/auth-context";
 
 export const SignIn = () => {
 
-  const [isSignedIn, setSignedIn] = useState(false);
-
   let username = '';
   let password = '';
+
   const usernameUpdated = (newValue) => { username = newValue }
   const passwordUpdated = (newValue) => { password = newValue }
+
+  const authContext = useContext(AuthContext);
 
   const formSubmitted = (event) => {
     event.preventDefault();
 
     trySignIn(username, password)
-      .then(result => setSignedIn(result))
+      .then(result => authContext.setSignedIn(result))
   }
 
-  return isSignedIn ? (<Redirect to="/"/>) : (
+
+  return authContext.signedIn ? (<Redirect to="/"/>) : (
     <div className="d-flex justify-content-center text-center">
       <form onSubmit={formSubmitted}>
           <h1 className="h3 mb-3 fw-normal">Sign In Bitch!</h1>
