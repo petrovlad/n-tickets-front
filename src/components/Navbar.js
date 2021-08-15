@@ -1,6 +1,6 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
-import {checkSignedIn} from "../services/api/auth-service";
+import {checkSignedIn, trySignOut} from "../services/api/auth-service";
 
 export const Navbar = () => {
   return (
@@ -14,19 +14,26 @@ export const Navbar = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
 
+          <ul className="navbar-nav">
             <li className="nav-item">
               <NavLink className="nav-link" to="/" exact>Home</NavLink>
             </li>
 
             {checkSignedIn() &&
+            <>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/tickets" exact>My Tickets</NavLink>
               </li>
+              <li className="nav-item">
+                <form onSubmit={() => trySignOut()}>
+                  <button className="btn btn-outline-warning btn-lg me-2" onClick={trySignOut}>Sign Out</button>
+                </form>
+              </li>
+            </>
             }
-
           </ul>
+
         </div>
       </div>
     </nav>
