@@ -1,5 +1,6 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
+import {checkSignedIn} from "../services/api/auth-service";
 
 export const Navbar = () => {
   return (
@@ -19,9 +20,11 @@ export const Navbar = () => {
               <NavLink className="nav-link" to="/" exact>Home</NavLink>
             </li>
 
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/tickets" exact>My Tickets</NavLink>
-            </li>
+            {checkSignedIn() &&
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/tickets" exact>My Tickets</NavLink>
+              </li>
+            }
 
           </ul>
         </div>

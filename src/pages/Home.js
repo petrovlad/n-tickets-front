@@ -1,4 +1,6 @@
 import React, {Fragment} from "react";
+import {NavLink} from "react-router-dom";
+import {checkSignedIn} from "../services/api/auth-service";
 
 export const Home = () => {
   return (
@@ -6,8 +8,14 @@ export const Home = () => {
         <div className="container">
           <h1 className="display-5 fw-bold">Hello from NTickets App!</h1>
           <p className="col-md-8 fs-4">Help me please.</p>
-          <button className="btn btn-outline-secondary btn-lg me-2" type="button">Sign In</button>
-          <button className="btn btn-secondary btn-lg" type="button">Sign Up</button>
+          {checkSignedIn() ?
+            <NavLink className="btn btn-secondary btn-lg" to="/tickets">Go to my tickets</NavLink>
+            :
+            <>
+              <NavLink className="btn btn-outline-secondary btn-lg me-2" to="/signin">Sign In</NavLink>
+              <NavLink className="btn btn-secondary btn-lg" to="/signup">Sign Up</NavLink>
+            </>
+          }
         </div>
       </div>
   )
