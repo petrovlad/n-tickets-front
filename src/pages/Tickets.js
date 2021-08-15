@@ -3,6 +3,8 @@ import {TicketsList} from "../components/TicketsList";
 import AuthContext from "../context/auth-context";
 import {Redirect} from "react-router-dom";
 import {getTickets} from "../services/api/tickets-service";
+import {ModalForm} from "../components/ModalForm";
+import TicketsContext from "../context/tickets-context";
 
 export const Tickets = () => {
   console.log("show tickets")
@@ -18,13 +20,23 @@ export const Tickets = () => {
     }
   }, [flag, tickets]);
 
+  const [selectedTicket, setSelectedTicket] = useState({});
+
+  const getSelected = () => selectedTicket;
+
   return (
-    <AuthContext.Consumer>
-      {({signedIn, setSignedIn}) => (
-        <div className="p-5 mb-4 bg-light rounded-3">
-          {signedIn ? <TicketsList tickets={tickets}/> : <Redirect to="/signin"/>}
-        </div>
-      )}
-    </AuthContext.Consumer>
+    <TicketsContext.Provider value={{selectedTicket, setSelectedTicket}}>
+      <AuthContext.Consumer>
+          {({signedIn, setSignedIn}) => (
+            <div>
+              <div className="p-5 mb-4 bg-light rounded-3">
+                {signedIn ? <TicketsList tickets={tickets} /> : <Redirect to="/signin"/>}
+              </div>
+
+              <ModalForm getSelected={getSelected}/>
+            </div>
+          )}
+      </AuthContext.Consumer>
+    </TicketsContext.Provider>
   )
 }
