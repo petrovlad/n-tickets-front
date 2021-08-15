@@ -6,7 +6,7 @@ export const TicketsList = (props) => {
 
   return (tickets ?
     <ul className="list-group">
-      {tickets.sort((a, b) => a.uniqueHash > b.uniqueHash).map((ticket) => (
+      {tickets.sort((a, b) => a.uniqueHash.localeCompare(b.uniqueHash)).map((ticket) => (
         <li className="list-group-item" key={ticket.uniqueHash}>
           <Ticket value={ticket} />
         </li>
