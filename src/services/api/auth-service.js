@@ -6,7 +6,7 @@ export const trySignIn = (username, password) => {
   const payload = {username, password};
   return axios.post(apiUrl, payload)
     .then(response => {
-      localStorage.setItem('jwt', response.data.access_token);
+      localStorage.setItem('jwt', response.data.token);
       return true;
     })
     .catch(err => {
@@ -20,7 +20,7 @@ export const trySignUp = (email, username, password) => {
   console.log(payload);
   return axios.post(apiUrl, payload)
     .then(response => {
-      localStorage.setItem('jwt', response.data.access_token);
+      localStorage.setItem('jwt', response.data.token);
       return true;
     })
     .catch(err => {
