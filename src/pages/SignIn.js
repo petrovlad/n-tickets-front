@@ -8,6 +8,8 @@ export const SignIn = () => {
 
   let username = '';
   let password = '';
+  const usernameUpdated = (newValue) => { username = newValue }
+  const passwordUpdated = (newValue) => { password = newValue }
 
   const formSubmitted = (event) => {
     event.preventDefault();
@@ -15,9 +17,6 @@ export const SignIn = () => {
     trySignIn(username, password)
       .then(result => setSignedIn(result))
   }
-
-  const usernameUpdated = (newValue) => { username = newValue }
-  const passwordUpdated = (newValue) => { password = newValue }
 
   return isSignedIn ? (<Redirect to="/"/>) : (
     <div className="d-flex justify-content-center text-center">
