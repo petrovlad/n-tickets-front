@@ -3,8 +3,9 @@ import {TicketsList} from "../components/TicketsList";
 import AuthContext from "../context/auth-context";
 import {Redirect} from "react-router-dom";
 import {getTickets} from "../services/api/tickets-service";
-import {ModalForm} from "../components/ModalForm";
+import {ModalForm} from "../components/modals/ModalForm";
 import TicketsContext from "../context/tickets-context";
+import {DeleteModalForm} from "../components/modals/DeleteModalForm";
 
 export const Tickets = () => {
   console.log("show tickets")
@@ -40,7 +41,8 @@ export const Tickets = () => {
               >
                 Create new ticket
               </button>
-              <ModalForm getSelected={getSelected}/>
+              <ModalForm />
+              <DeleteModalForm />
             </div>
           )}
       </AuthContext.Consumer>
