@@ -30,18 +30,22 @@ export const Tickets = () => {
       <AuthContext.Consumer>
           {({signedIn, setSignedIn}) => (
             <div>
-              <div className="p-5 mb-4 bg-light rounded-3">
+              <div>
                 {signedIn ? <TicketsList tickets={tickets} /> : <Redirect to="/signin"/>}
               </div>
 
-              <button type="button"
-                      className="btn btn-primary mb-4"
-                      data-bs-target="#exampleModalCenter"
-                      data-bs-toggle="modal"
-              >
-                Create new ticket
-              </button>
+              <div style={{justifyContent: "center", display: "flex"}}>
+                  <button type="button"
+                          className="btn btn-primary mb-4"
+                          data-bs-target="#exampleModalCenter"
+                          data-bs-toggle="modal"
+                  >
+                    Create new ticket
+                  </button>
+              </div>
+
               <ModalForm />
+
               <DeleteModalForm />
             </div>
           )}
