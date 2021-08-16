@@ -7,6 +7,7 @@ import {SignUp} from "./pages/SignUp";
 import {Navbar} from "./components/Navbar";
 import {AlertState} from "./context/alert/AlertState";
 import {ShowTicket} from "./pages/ShowTicket";
+import {NotFound} from "./pages/NotFound";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
             <Route path={'/signup'} exact component={SignUp}/>
             <Route path={'/signin'} exact component={SignIn}/>
             <Route path={'/tickets'} exact component={Tickets}/>
-            <Route path={'/ticket-:hash'} component={ShowTicket}/>
+            <Route path={'/ticket-:hash([a-z0-9]+)'} component={ShowTicket}/>
+            <Route path={""} component={NotFound}/>
           </Switch>
         </div>
       </BrowserRouter>
