@@ -1,7 +1,7 @@
 import React, {Fragment} from "react";
 import {NavLink} from "react-router-dom";
 
-export const NotFound = (props) => {
+export const ErrorPage = (props) => {
   return (
     <Fragment>
       <h3>{props.message}</h3>
