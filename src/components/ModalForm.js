@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import TicketsContext from "../context/tickets-context";
 import {trySignIn} from "../services/api/auth-service";
-import {putTicket} from "../services/api/tickets-service";
+import {postTicket, putTicket} from "../services/api/tickets-service";
 
 export const ModalForm = (props) => {
 
@@ -9,23 +9,44 @@ export const ModalForm = (props) => {
 
   let title = selectedTicket.title;
   let content = selectedTicket.content;
-  let showWarning = selectedTicket.showWarning;
+  let showWarning = selectedTicket.showWarning || false;
   let readsCount = selectedTicket.readingsCount;
   let hash = selectedTicket.uniqueHash;
 
   const titleUpdated = (newValue) => { title = newValue };
   const contentUpdated = (newValue) => { content = newValue };
-  const showWarningUpdated = (newValue) => { showWarning = newValue };
+  const showWarningUpdated = (newValue) => {
+    showWarning = !showWarning
+    console.log(showWarning)
+  };
   const readsCountUpdated = (newValue) => { readsCount = newValue };
 
   const formSubmitted = (event) => {
     event.preventDefault();
 
-    putTicket({title, content, showWarning, readingsCount:readsCount, uniqueHash: hash})
-      .then(response => {
-        console.log(response);
-        window.location.reload();
-      })
+    function isEmpty(obj) {
+      return Object.keys(obj).length === 0;
+    }
+
+    if (!isEmpty(selectedTicket)) {
+      // then we choose 'edit' function => put
+      putTicket({title, content, showWarning, readingsCount:readsCount, uniqueHash: hash})
+        .then(response => {
+          console.log(response);
+          window.location.reload();
+        })
+    } else {
+      // otherwise we choose 'create new'
+      postTicket({title, content, showWarning, readingsCount:readsCount})
+        .then(response => {
+          console.log(response);
+          window.location.reload();
+        })
+    }
+  }
+
+  const onCloseClick = () => {
+    setSelectedTicket({});
   }
 
   return (
@@ -36,7 +57,7 @@ export const ModalForm = (props) => {
           <form onSubmit={formSubmitted}>
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalCenterTitle">Edit ticket</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={onCloseClick}/>
             </div>
             <div className="modal-body">
 
@@ -94,7 +115,7 @@ export const ModalForm = (props) => {
             </div>
 
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={onCloseClick}>Close</button>
               <button type="submit" className="btn btn-primary">Save changes</button>
             </div>
           </form>

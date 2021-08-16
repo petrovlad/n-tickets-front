@@ -33,6 +33,13 @@ export const Tickets = () => {
                 {signedIn ? <TicketsList tickets={tickets} /> : <Redirect to="/signin"/>}
               </div>
 
+              <button type="button"
+                      className="btn btn-primary mb-4"
+                      data-bs-target="#exampleModalCenter"
+                      data-bs-toggle="modal"
+              >
+                Create new ticket
+              </button>
               <ModalForm getSelected={getSelected}/>
             </div>
           )}
