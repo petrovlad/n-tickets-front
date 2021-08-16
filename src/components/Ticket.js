@@ -1,6 +1,5 @@
 import React, {useContext} from "react";
 import TicketsContext from "../context/tickets-context";
-import {isVisible} from "bootstrap/js/src/util";
 
 export const Ticket = (props) => {
   const ticket = props.value;
@@ -8,12 +7,13 @@ export const Ticket = (props) => {
   const ticketContext = useContext(TicketsContext);
 
   const setSelected = (ticket) => {
+    console.log(ticket)
     ticketContext.setSelectedTicket(ticket);
   }
 
   return (ticket ?
       <div>
-        <p>{ticket.title}-{ticket.uniqueHash}</p>
+        <p>{ticket.title}-{ticket.readingsCount}-{ticket.uniqueHash}</p>
 
         <div className="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
           <div className="btn-group me-2" role="group">
@@ -31,6 +31,7 @@ export const Ticket = (props) => {
               className="btn btn-danger"
               data-bs-toggle="modal"
               data-bs-target="#exampleDeleteModal"
+              onClick={() => setSelected(ticket)}
             >
               Delete
             </button>
