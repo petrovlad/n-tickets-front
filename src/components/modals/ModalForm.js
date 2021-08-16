@@ -44,7 +44,7 @@ export const ModalForm = (props) => {
     setSelectedTicket({});
     // clear the form so all values returned to initial state
     // sorry for epilepsy btw
-    document.getElementById("ticketForm").reset;
+    document.getElementById("ticketForm").reset();
   }
 
   return (
