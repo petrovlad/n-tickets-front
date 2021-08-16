@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import TicketsContext from "../../context/tickets-context";
 import {postTicket, putTicket} from "../../services/api/tickets-service";
 import {isElement} from "react-dom/test-utils";
@@ -9,7 +9,7 @@ export const ModalForm = (props) => {
 
   let title = selectedTicket.title || '';
   let content = selectedTicket.content || '';
-  let showWarning = selectedTicket.showWarning || false;
+  let showWarning = (selectedTicket.showWarning === undefined) ? false : selectedTicket.showWarning;
   let readsCount = selectedTicket.readingsCount;
   let hash = selectedTicket.uniqueHash;
 
@@ -43,7 +43,8 @@ export const ModalForm = (props) => {
   const onCloseClick = () => {
     setSelectedTicket({});
     // clear the form so all values returned to initial state
-    document.getElementById("ticketForm").reset();
+    // sorry for epilepsy btw
+    document.getElementById("ticketForm").reset;
   }
 
   return (
