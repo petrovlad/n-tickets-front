@@ -21,3 +21,15 @@ export const putTicket = (ticket) => {
     })
     .catch(err => {console.log(err)})
 }
+
+export const postTicket = (ticket) => {
+  const apiUrl = config.server + "/tickets/";
+  console.log(ticket);
+  return axios.post(apiUrl, ticket, getConfig())
+    .then(response => {
+      console.log(response)
+      return response
+    })
+    .catch(err => {console.log(err)})
+}
+
