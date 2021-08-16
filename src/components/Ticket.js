@@ -38,10 +38,8 @@ export const Ticket = (props) => {
   const classes = useStyles();
 
   return (ticket ?
-      <div style={{backgroundColor: "gray"}}>
-        <p>{ticket.title}-{ticket.readingsCount}-{ticket.uniqueHash}</p>
-        <div className={classes.root}>
-          <Paper className={classes.paper}>
+        <div className={classes.root} >
+          <Paper className={classes.paper} style={{boxShadow: "2px 2px 2px 2px rgba(0, 0, 0, 0.2)"}}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm container>
                 <Grid item xs container direction="column" spacing={2} zeroMinWidth>
@@ -62,7 +60,7 @@ export const Ticket = (props) => {
 
                 <Grid item xs zeroMinWidth>
                   <div style={{display: "flex", alignItems: "baseline", justifyContent: "center"}}>
-                    <Typography variant="h1" color="textSecondary" noWrap>
+                    <Typography variant="h2" color="textSecondary" noWrap>
                       {ticket.readingsCount}
                     </Typography>
                   </div>
@@ -92,7 +90,6 @@ export const Ticket = (props) => {
               </Grid>
             </Grid>
           </Paper>
-        </div>
 {/*        <div className="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
           <div className="btn-group me-2" role="group">
             <button
