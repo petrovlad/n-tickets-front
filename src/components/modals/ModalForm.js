@@ -1,44 +1,40 @@
 import React, {useContext} from "react";
 import TicketsContext from "../../context/tickets-context";
 import {postTicket, putTicket} from "../../services/api/tickets-service";
+import {isElement} from "react-dom/test-utils";
 
 export const ModalForm = (props) => {
 
   const {selectedTicket, setSelectedTicket} = useContext(TicketsContext);
 
-  let title = selectedTicket.title;
-  let content = selectedTicket.content;
+  let title = selectedTicket.title || '';
+  let content = selectedTicket.content || '';
   let showWarning = selectedTicket.showWarning || false;
   let readsCount = selectedTicket.readingsCount;
   let hash = selectedTicket.uniqueHash;
 
   const titleUpdated = (newValue) => { title = newValue };
   const contentUpdated = (newValue) => { content = newValue };
-  const showWarningUpdated = (newValue) => {
-    showWarning = !showWarning
-    console.log(showWarning)
-  };
+  const showWarningUpdated = (newValue) => { showWarning = !showWarning };
   const readsCountUpdated = (newValue) => { readsCount = newValue };
+
+  function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+  }
 
   const formSubmitted = (event) => {
     event.preventDefault();
-
-    function isEmpty(obj) {
-      return Object.keys(obj).length === 0;
-    }
 
     if (!isEmpty(selectedTicket)) {
       // then we choose 'edit' function => put
       putTicket({title, content, showWarning, readingsCount:readsCount, uniqueHash: hash})
         .then(response => {
-          console.log(response);
           window.location.reload();
         })
     } else {
       // otherwise we choose 'create new'
       postTicket({title, content, showWarning, readingsCount:readsCount})
         .then(response => {
-          console.log(response);
           window.location.reload();
         })
     }
@@ -46,6 +42,8 @@ export const ModalForm = (props) => {
 
   const onCloseClick = () => {
     setSelectedTicket({});
+    // clear the form so all values returned to initial state
+    document.getElementById("ticketForm").reset();
   }
 
   return (
@@ -53,9 +51,9 @@ export const ModalForm = (props) => {
          style={{display: "none"}} aria-modal="true" role="dialog">
       <div className="modal-dialog">
         <div className="modal-content">
-          <form onSubmit={formSubmitted}>
+          <form onSubmit={formSubmitted} id="ticketForm">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalCenterTitle">Edit ticket</h5>
+              <h5 className="modal-title" id="exampleModalCenterTitle">{!isEmpty(selectedTicket) ? "Edit" : "Create"} ticket</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={onCloseClick}/>
             </div>
             <div className="modal-body">
@@ -105,11 +103,11 @@ export const ModalForm = (props) => {
               <div className="form-check form-switch">
                 <input className="form-check-input"
                        type="checkbox"
-                       id="flexSwitchCheckDefault"
+                       id="showWarningSwitch"
                        defaultChecked={showWarning}
                        onChange={(event => showWarningUpdated(event.target.value))}
                 />
-                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Show warning</label>
+                <label className="form-check-label" htmlFor="showWarningSwitch">Show warning</label>
               </div>
             </div>
 
