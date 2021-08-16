@@ -44,7 +44,7 @@ export const Ticket = (props) => {
           <Paper className={classes.paper}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm container>
-                <Grid item xs container direction="column" spacing={2}>
+                <Grid item xs container direction="column" spacing={2} zeroMinWidth>
                   <Grid item xs zeroMinWidth>
                     <Typography gutterBottom variant="h4" noWrap>
                       {ticket.title}
@@ -73,7 +73,7 @@ export const Ticket = (props) => {
                   </div>
 
                 </Grid>
-                <Grid item>
+                <Grid item zeroMinWidth>
                   <div className="btn-group-vertical">
                     <button type="button" className="btn btn-outline-secondary close"
                             data-toggle="tooltip" data-placement="right" title="Edit ticket">
