@@ -28,19 +28,18 @@ export const Navbar = () => {
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/tickets" exact>My Tickets</NavLink>
                 </li>
-                <li className="nav-item">
-                    <button className="btn btn-outline-warning btn-lg me-2" onClick={() => {
-                    setSignedIn(false);
-                    trySignOut();
-                    }}>
-                      Sign Out
-                    </button>
-                </li>
+
               </>
               }
             </ul>
-
           </div>
+
+          <button className="btn btn-outline-warning me-2" onClick={() => {
+            setSignedIn(false);
+            trySignOut();
+          }}>
+            Sign Out
+          </button>
         </div>
       </nav>
       )}
