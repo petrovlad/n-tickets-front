@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
-import TicketsContext from "../context/tickets-context";
-import {trySignIn} from "../services/api/auth-service";
-import {postTicket, putTicket} from "../services/api/tickets-service";
+import TicketsContext from "../../context/tickets-context";
+import {trySignIn} from "../../services/api/auth-service";
+import {postTicket, putTicket} from "../../services/api/tickets-service";
 
 export const ModalForm = (props) => {
 
