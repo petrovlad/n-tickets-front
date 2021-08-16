@@ -73,15 +73,27 @@ export const Ticket = (props) => {
                 </Grid>
                 <Grid item zeroMinWidth>
                   <div className="btn-group-vertical">
-                    <button type="button" className="btn btn-outline-secondary close"
+                    <button type="button"
+                            className="btn btn-outline-secondary close"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModalCenter"
+                            onClick={() => setSelected(ticket)}
                             data-toggle="tooltip" data-placement="right" title="Edit ticket">
                       <PencilIcon size={16} />
                     </button>
-                    <button type="button" className="btn btn-outline-danger"
+
+                    <button type="button"
+                            className="btn btn-outline-danger"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleDeleteModal"
+                            onClick={() => setSelected(ticket)}
                             data-toggle="tooltip" data-placement="right" title="Delete ticket">
                       <XCircleIcon size={16} />
                     </button>
-                    <button type="button" className="btn btn-outline-secondary"
+
+                    <button type="button"
+                            className="btn btn-outline-secondary"
+                            onClick={() => {navigator.clipboard.writeText(`http://localhost:1337/ticket-${ticket.uniqueHash}`)}}
                             data-toggle="tooltip" data-placement="right" title="Copy link">
                       <LinkIcon size={16} />
                     </button>
@@ -90,29 +102,6 @@ export const Ticket = (props) => {
               </Grid>
             </Grid>
           </Paper>
-{/*        <div className="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
-          <div className="btn-group me-2" role="group">
-            <button
-              type="button"
-              className="btn-success"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModalCenter"
-              onClick={() => setSelected(ticket)}
-            >
-              Edit
-            </button>
-            <button
-              type="button"
-              className="btn btn-danger"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleDeleteModal"
-              onClick={() => setSelected(ticket)}
-            >
-              Delete
-            </button>
-
-          </div>
-        </div>*/}
       </div>
       : <p>Ticket doesn't exist</p>
   )
