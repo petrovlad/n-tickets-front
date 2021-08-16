@@ -9,8 +9,6 @@ export const getTicket = (hash) => {
     .then(response => {
       return response.data
     })
-    .catch(err => {
-      console.log(err)
-    });
+  // don't catch it, we'll catch it in component
 }
 
