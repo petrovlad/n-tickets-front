@@ -48,7 +48,7 @@ export const SignIn = () => {
         </div>
 
         <button className="w-100 btn btn-lg btn-outline-secondary" type="submit">Sign in</button>
-        <p className="mt-3">Already have an account? <NavLink to="/signup">Sign up here</NavLink></p>
+        <p className="mt-3">Don't have an account? <NavLink to="/signup">Sign up here</NavLink></p>
       </form>
     </div>
   )

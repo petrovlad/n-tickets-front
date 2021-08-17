@@ -61,7 +61,7 @@ export const SignUp = () => {
         </div>
 
         <button className="w-100 btn btn-lg btn-outline-secondary" type="submit">Sign up</button>
-        <p className="mt-3">Don't have an account? <NavLink to="/signin">Sign in here</NavLink></p>
+        <p className="mt-3">Already have an account? <NavLink to="/signin">Sign in here</NavLink></p>
 
       </form>
     </div>
