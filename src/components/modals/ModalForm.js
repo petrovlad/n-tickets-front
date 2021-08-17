@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import TicketsContext from "../../context/tickets-context";
 import {postTicket, putTicket} from "../../services/api/tickets-service";
-import isEmpty from "../util/object-utils";
+import {isEmpty} from "../util/object-utils";
 
 export const ModalForm = (props) => {
 

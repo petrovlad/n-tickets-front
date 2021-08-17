@@ -7,7 +7,6 @@ import {ModalForm} from "../components/modals/ModalForm";
 import TicketsContext from "../context/tickets-context";
 import {DeleteModalForm} from "../components/modals/DeleteModalForm";
 import {LinearProgress} from "@material-ui/core";
-import isEmpty from "../components/util/object-utils";
 
 export const Tickets = () => {
   const [tickets, setTickets] = useState([]);

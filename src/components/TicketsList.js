@@ -1,6 +1,6 @@
 import React from "react";
 import {Ticket} from "./Ticket";
-import isEmpty from "./util/object-utils";
+import {isEmpty} from "./util/object-utils";
 
 export const TicketsList = (props) => {
   const tickets = props.tickets;
