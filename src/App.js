@@ -5,13 +5,11 @@ import {Tickets} from "./pages/Tickets";
 import {SignIn} from "./pages/SignIn";
 import {SignUp} from "./pages/SignUp";
 import {Navbar} from "./components/Navbar";
-import {AlertState} from "./context/alert/AlertState";
 import {ShowTicket} from "./pages/ShowTicket";
 import {ErrorPage} from "./pages/ErrorPage";
 
 function App() {
   return (
-    <AlertState>
       <BrowserRouter>
         <Navbar />
         <div className="container pt-5">
@@ -25,7 +23,6 @@ function App() {
           </Switch>
         </div>
       </BrowserRouter>
-    </AlertState>
   );
 }
 
