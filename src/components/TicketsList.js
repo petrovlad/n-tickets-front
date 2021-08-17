@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Ticket} from "./Ticket";
 import {isEmpty} from "./util/object-utils";
+import TicketsContext from "../context/tickets-context";
 
-export const TicketsList = (props) => {
-  const tickets = props.tickets;
+export const TicketsList = () => {
+  const tickets = useContext(TicketsContext).tickets;
 
   return (tickets == null || isEmpty(tickets) ?
       <p className="text-center">You have no tickets yet.</p>

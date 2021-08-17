@@ -9,7 +9,7 @@ import {DeleteModalForm} from "../components/modals/DeleteModalForm";
 import {LinearProgress} from "@material-ui/core";
 
 export const Tickets = () => {
-  const [tickets, setTickets] = useState([]);
+  const [tickets, setTickets] = useState({});
   const [flag, setFlag] = useState(false);
   
   const [loading, setLoading] = useState(true);
@@ -27,7 +27,7 @@ export const Tickets = () => {
   const [selectedTicket, setSelectedTicket] = useState({});
 
   return (
-    <TicketsContext.Provider value={{selectedTicket, setSelectedTicket}}>
+    <TicketsContext.Provider value={{selectedTicket, setSelectedTicket, tickets, setTickets}}>
       <AuthContext.Consumer>
           {({signedIn, setSignedIn}) => (
             <div>
@@ -47,7 +47,7 @@ export const Tickets = () => {
                             Create new ticket
                           </button>
                         </div>
-                        <TicketsList tickets={tickets}/>
+                        <TicketsList />
                       </>
                     }
                   </>

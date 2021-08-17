@@ -9,6 +9,7 @@ import config from "../config/config.json"
 import {copyToClipboard} from "./util/object-utils";
 
 export const Ticket = (props) => {
+  console.log("ticket")
   const ticket = props.value;
 
   const ticketContext = useContext(TicketsContext);
