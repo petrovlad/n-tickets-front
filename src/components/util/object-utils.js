@@ -2,7 +2,7 @@ export const isEmpty = (obj) => {
   return Object.keys(obj).length === 0;
 }
 
-const copyToClipboard = str => {
+export const copyToClipboard = str => {
   const el = document.createElement('textarea');
   el.value = str;
   el.setAttribute('readonly', '');
