@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {trySignUp} from "../services/api/auth-service";
-import {Redirect} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 import AuthContext from "../context/auth-context";
 
 export const SignUp = () => {
@@ -61,6 +61,8 @@ export const SignUp = () => {
         </div>
 
         <button className="w-100 btn btn-lg btn-outline-secondary" type="submit">Sign in</button>
+        <p className="mt-3">Don't have an account? <NavLink to="/signin">Sign in here</NavLink></p>
+
       </form>
     </div>
   )
