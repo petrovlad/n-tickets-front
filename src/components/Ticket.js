@@ -5,6 +5,7 @@ import {Grid, Paper, Typography} from "@material-ui/core";
 import {LinkIcon, PencilIcon, XCircleIcon} from "@primer/octicons-react"
 import {RedTypography} from "./util/RedTypography";
 import {YellowTypography} from "./util/YellowTypography";
+import config from "../config/config.json"
 
 export const Ticket = (props) => {
   const ticket = props.value;
@@ -97,7 +98,7 @@ export const Ticket = (props) => {
 
                     <button type="button"
                             className="btn btn-outline-secondary"
-                            onClick={() => {navigator.clipboard.writeText(`http://localhost:1337/ticket-${ticket.uniqueHash}`)}}
+                            onClick={() => {navigator.clipboard.writeText(`${config.server}/ticket-${ticket.uniqueHash}`)}}
                             data-toggle="tooltip" data-placement="right" title="Copy link">
                       <LinkIcon size={16} />
                     </button>
