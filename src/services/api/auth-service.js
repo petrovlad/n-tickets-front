@@ -8,9 +8,6 @@ export const trySignIn = (username, password) => {
     .then(response => {
       localStorage.setItem('jwt', response.data.token);
       return true;
-    })
-    .catch(err => {
-      console.log(err)
     });
 }
 
@@ -21,9 +18,6 @@ export const trySignUp = (email, username, password) => {
     .then(response => {
       localStorage.setItem('jwt', response.data.token);
       return true;
-    })
-    .catch(err => {
-      console.log(err)
     });
 }
 
