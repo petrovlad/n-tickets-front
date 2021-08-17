@@ -70,7 +70,7 @@ export const Ticket = (props) => {
                     </SelectedTypography>
                   </div>
                   <div style={{display: "flex", justifyContent: "center"}}>
-                      <SelectedTypography variant="h5" noWrap>
+                      <SelectedTypography variant="h5" color="textSecondary" noWrap>
                         {ticket.readingsCount > 1 ? "times" : "time"}
                       </SelectedTypography>
                   </div>
