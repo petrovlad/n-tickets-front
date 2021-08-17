@@ -20,7 +20,6 @@ export const DeleteModalForm = () => {
     if (!isEmpty(selectedTicket)) {
       deleteTicket({uniqueHash: selectedTicket.uniqueHash})
         .then(response => {
-          console.log(response);
           window.location.reload();
         })
     }

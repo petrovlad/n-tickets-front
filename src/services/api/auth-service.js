@@ -17,7 +17,6 @@ export const trySignIn = (username, password) => {
 export const trySignUp = (email, username, password) => {
   const apiUrl = config.server + '/auth/signup';
   const payload = {email, username, password, roles:['user']};
-  console.log(payload);
   return axios.post(apiUrl, payload)
     .then(response => {
       localStorage.setItem('jwt', response.data.token);

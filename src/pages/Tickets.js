@@ -10,7 +10,6 @@ import {LinearProgress} from "@material-ui/core";
 import isEmpty from "../components/util/object-utils";
 
 export const Tickets = () => {
-  console.log("show tickets")
   const [tickets, setTickets] = useState([]);
   const [flag, setFlag] = useState(false);
 

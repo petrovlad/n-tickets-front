@@ -13,10 +13,8 @@ export const getTickets = () => {
 
 export const putTicket = (ticket) => {
   const apiUrl = config.server + "/tickets/" + ticket.uniqueHash;
-  console.log(ticket);
   return axios.put(apiUrl, ticket, getConfig())
     .then(response => {
-      console.log(response);
       return response;
     })
     .catch(err => {console.log(err)});
@@ -24,10 +22,8 @@ export const putTicket = (ticket) => {
 
 export const postTicket = (ticket) => {
   const apiUrl = config.server + "/tickets/";
-  console.log(ticket);
   return axios.post(apiUrl, ticket, getConfig())
     .then(response => {
-      console.log(response);
       return response;
     })
     .catch(err => {console.log(err)})
@@ -35,11 +31,8 @@ export const postTicket = (ticket) => {
 
 export const deleteTicket = (ticket) => {
   const apiUrl = config.server + "/tickets/" + ticket.uniqueHash;
-  console.log(apiUrl);
-  console.log(ticket);
   return axios.delete(apiUrl, getConfig())
     .then(response => {
-      console.log(response);
       return response;
     })
     .catch(err => {console.log(err)})

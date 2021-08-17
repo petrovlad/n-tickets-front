@@ -12,7 +12,6 @@ export const Ticket = (props) => {
   const ticketContext = useContext(TicketsContext);
 
   const setSelected = (ticket) => {
-    console.log(ticket)
     ticketContext.setSelectedTicket(ticket);
   }
 
