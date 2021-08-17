@@ -3,6 +3,8 @@ import TicketsContext from "../context/tickets-context";
 import {makeStyles} from "@material-ui/core/styles";
 import {Grid, Paper, Typography} from "@material-ui/core";
 import {LinkIcon, PencilIcon, XCircleIcon} from "@primer/octicons-react"
+import {RedTypography} from "./util/RedTypography";
+import {YellowTypography} from "./util/YellowTypography";
 
 export const Ticket = (props) => {
   const ticket = props.value;
@@ -37,14 +39,17 @@ export const Ticket = (props) => {
 
   const classes = useStyles();
 
+  const SelectedTypography = ticket.readingsCount <= 5 ? RedTypography :
+    ticket.readingsCount <= 10 ? YellowTypography : Typography;
+
   return (ticket ?
         <div className={classes.root} >
           <Paper className={classes.paper} style={{boxShadow: "2px 2px 2px 2px rgba(0, 0, 0, 0.2)"}}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm container>
-                <Grid item xs container direction="column" spacing={2} zeroMinWidth>
+                <Grid item xs={7} container direction="column" spacing={2} zeroMinWidth>
                   <Grid item xs zeroMinWidth>
-                    <Typography gutterBottom variant="h4" noWrap>
+                    <Typography gutterBottom variant="h5" noWrap>
                       {ticket.title}
                     </Typography>
                     <Typography variant="body1" gutterBottom noWrap>
@@ -60,14 +65,14 @@ export const Ticket = (props) => {
 
                 <Grid item xs zeroMinWidth>
                   <div style={{display: "flex", alignItems: "baseline", justifyContent: "center"}}>
-                    <Typography variant="h2" color="textSecondary" noWrap>
+                    <SelectedTypography variant="h2" color="textSecondary" noWrap>
                       {ticket.readingsCount}
-                    </Typography>
+                    </SelectedTypography>
                   </div>
                   <div style={{display: "flex", justifyContent: "center"}}>
-                    <Typography variant="h5" color="textSecondary" noWrap >
-                      {ticket.readingsCount > 1 ? "times" : "time"}
-                    </Typography>
+                      <SelectedTypography variant="h5" noWrap>
+                        {ticket.readingsCount > 1 ? "times" : "time"}
+                      </SelectedTypography>
                   </div>
 
                 </Grid>
