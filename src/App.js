@@ -8,6 +8,7 @@ import {Navbar} from "./components/Navbar";
 import {ShowTicket} from "./pages/ShowTicket";
 import {ErrorPage} from "./pages/ErrorPage";
 import {Footer} from "./components/Footer";
+import {About} from "./pages/About";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <div className="container">
           <Switch>
             <Route path={'/'} exact component={Home}/>
+            <Route path={'/about'} exact component={About}/>
             <Route path={'/signup'} exact component={SignUp}/>
             <Route path={'/signin'} exact component={SignIn}/>
             <Route path={'/tickets'} exact component={Tickets}/>
