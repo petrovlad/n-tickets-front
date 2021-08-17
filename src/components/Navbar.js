@@ -9,7 +9,7 @@ export const Navbar = () => {
       {({signedIn, setSignedIn}) => (
       <nav className="navbar navbar-dark navbar-expand-lg bg-secondary">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/">Navbar</NavLink>
+          <NavLink className="navbar-brand" to="/">NTickets</NavLink>
 
           <button className="navbar-toggler me-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                   aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,12 +34,14 @@ export const Navbar = () => {
             </ul>
           </div>
 
-          <button className="btn btn-outline-warning me-2" onClick={() => {
-            setSignedIn(false);
-            trySignOut();
-          }}>
-            Sign Out
-          </button>
+          {signedIn &&
+            <button className="btn btn-outline-warning me-2" onClick={() => {
+              setSignedIn(false);
+              trySignOut();
+            }}>
+              Sign Out
+            </button>
+          }
         </div>
       </nav>
       )}
