@@ -13,7 +13,7 @@ const AppWrapper = () => {
     <AuthContext.Provider value={{ signedIn, setSignedIn }}>
       <React.StrictMode>
         <App />
-      </React.StrictMode>,
+      </React.StrictMode>
     </AuthContext.Provider>
   )
 }
