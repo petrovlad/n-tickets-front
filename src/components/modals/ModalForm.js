@@ -49,6 +49,7 @@ export const ModalForm = () => {
           setTickets(temp);
         })
     }
+    onCloseClick();
   }
 
   const onCloseClick = () => {
@@ -72,7 +73,6 @@ export const ModalForm = () => {
                     <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={onCloseClick}/>
                   </div>
                   <div className="modal-body">
-
                     <div className="mb-3 row">
                       <div className="input-group">
                         <span className="input-group-text" id="basic-addon1">Title</span>
@@ -86,7 +86,6 @@ export const ModalForm = () => {
                                required/>
                       </div>
                     </div>
-
                     <div className="mb-3 row">
                       <div className="input-group">
                         <span className="input-group-text" id="basic-addon1">content</span>
