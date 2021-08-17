@@ -110,8 +110,8 @@ export const ModalForm = (props) => {
             </div>
 
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={onCloseClick}>Close</button>
-              <button type="submit" className="btn btn-primary">Save changes</button>
+              <button type="button" className="btn btn-outline-danger" data-bs-dismiss="modal" onClick={onCloseClick}>Close</button>
+              <button type="submit" className="btn btn-outline-secondary">Save changes</button>
             </div>
           </form>
         </div>

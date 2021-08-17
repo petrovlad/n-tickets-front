@@ -39,13 +39,13 @@ export const DeleteModalForm = () => {
             </div>
             <div className="modal-footer flex-nowrap p-0">
               <button type="submit"
-                      className="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-right">
+                      className="btn btn-lg btn-link fs-6 text-secondary text-decoration-none col-6 m-0 rounded-0 border-right">
                 <strong>
                   Yes, delete
                 </strong>
               </button>
               <button type="button"
-                      className="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0"
+                      className="btn btn-lg btn-link fs-6 text-secondary text-decoration-none col-6 m-0 rounded-0"
                       data-bs-dismiss="modal" onClick={onCancelClick}>
                 Cancel
               </button>

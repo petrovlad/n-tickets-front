@@ -41,7 +41,7 @@ export const Tickets = () => {
                         <TicketsList tickets={tickets}/>
                         <div style={{justifyContent: "center", display: "flex"}}>
                           <button type="button"
-                                  className="btn btn-primary mb-4"
+                                  className="btn btn-secondary mb-4"
                                   data-bs-target="#exampleModalCenter"
                                   data-bs-toggle="modal"
                           >
