@@ -87,6 +87,7 @@ export const ModalForm = (props) => {
                 <div className="input-group">
                   <span className="input-group-text" id="basic-addon-count">Readings count</span>
                   <input type="number"
+                         min={1}
                          id="count"
                          name="count"
                          className="form-control"
