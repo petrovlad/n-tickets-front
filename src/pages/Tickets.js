@@ -38,7 +38,6 @@ export const Tickets = () => {
                       <LinearProgress style={{margin: "10px"}}/>
                       :
                       <>
-                        <TicketsList tickets={tickets}/>
                         <div style={{justifyContent: "center", display: "flex"}}>
                           <button type="button"
                                   className="btn btn-secondary mb-4"
@@ -48,6 +47,7 @@ export const Tickets = () => {
                             Create new ticket
                           </button>
                         </div>
+                        <TicketsList tickets={tickets}/>
                       </>
                     }
                   </>
