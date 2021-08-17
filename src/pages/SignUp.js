@@ -60,7 +60,7 @@ export const SignUp = () => {
           <label htmlFor="floatingPassword">Password</label>
         </div>
 
-        <button className="w-100 btn btn-lg btn-outline-secondary" type="submit">Sign in</button>
+        <button className="w-100 btn btn-lg btn-outline-secondary" type="submit">Sign up</button>
         <p className="mt-3">Don't have an account? <NavLink to="/signin">Sign in here</NavLink></p>
 
       </form>
