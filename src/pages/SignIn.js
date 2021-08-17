@@ -24,7 +24,7 @@ export const SignIn = () => {
   return authContext.signedIn ? (<Redirect to="/"/>) : (
     <div className="d-flex justify-content-center text-center">
       <form onSubmit={formSubmitted}>
-          <h1 className="h3 mb-3 fw-normal">Sign In Bitch!</h1>
+          <h1 className="h3 mb-3 fw-normal">Sign In!</h1>
           <div className="form-floating">
             <input
               type="text"
