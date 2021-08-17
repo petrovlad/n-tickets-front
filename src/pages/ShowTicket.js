@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
-import AuthContext from "../context/auth-context";
-import {Redirect, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {getTicket} from "../services/api/show-ticket-service";
 import {ErrorPage} from "./ErrorPage";
 import {isEmpty} from "../components/util/object-utils";
