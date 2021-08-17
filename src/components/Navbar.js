@@ -35,7 +35,7 @@ export const Navbar = () => {
           </div>
 
           {signedIn &&
-            <button className="btn btn-outline-warning me-2" onClick={() => {
+            <button className="btn btn-danger me-2" onClick={() => {
               setSignedIn(false);
               trySignOut();
             }}>
