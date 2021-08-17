@@ -43,7 +43,7 @@ export const Ticket = (props) => {
 
   return (ticket ?
         <div className={classes.root} >
-          <Paper className={classes.paper} style={{boxShadow: "2px 2px 2px 2px rgba(0, 0, 0, 0.2)"}}>
+          <Paper className={classes.paper} style={{boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)"}}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm container>
                 <Grid item xs={7} container direction="column" spacing={2} zeroMinWidth>
