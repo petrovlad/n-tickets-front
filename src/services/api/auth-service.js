@@ -2,7 +2,7 @@ import axios from "axios";
 import config from '../../config/config.json'
 
 export const trySignIn = (username, password) => {
-  const apiUrl = config.server + '/auth/signin';
+  const apiUrl = config.backendServer + '/auth/signin';
   const payload = {username, password};
   return axios.post(apiUrl, payload)
     .then(response => {
@@ -15,7 +15,7 @@ export const trySignIn = (username, password) => {
 }
 
 export const trySignUp = (email, username, password) => {
-  const apiUrl = config.server + '/auth/signup';
+  const apiUrl = config.backendServer + '/auth/signup';
   const payload = {email, username, password, roles:['user']};
   return axios.post(apiUrl, payload)
     .then(response => {

@@ -1,3 +1,4 @@
 {
-  "server": "https://n-tickets-backend.herokuapp.com"
+  "backendServer": "https://n-tickets-backend.herokuapp.com",
+  "frontendServer": "https://n-tickets.herokuapp.com"
 }

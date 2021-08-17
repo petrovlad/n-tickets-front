@@ -3,7 +3,7 @@ import {getConfig} from "../../jwt/request-config";
 import config from '../../config/config.json'
 
 export const getTickets = () => {
-  const apiUrl = config.server + '/tickets';
+  const apiUrl = config.backendServer + '/tickets';
   return axios.get(apiUrl, getConfig())
     .then(response => response.data)
     .catch(err => {
@@ -12,7 +12,7 @@ export const getTickets = () => {
 }
 
 export const putTicket = (ticket) => {
-  const apiUrl = config.server + "/tickets/" + ticket.uniqueHash;
+  const apiUrl = config.backendServer + "/tickets/" + ticket.uniqueHash;
   return axios.put(apiUrl, ticket, getConfig())
     .then(response => {
       return response;
@@ -21,7 +21,7 @@ export const putTicket = (ticket) => {
 }
 
 export const postTicket = (ticket) => {
-  const apiUrl = config.server + "/tickets/";
+  const apiUrl = config.backendServer + "/tickets/";
   return axios.post(apiUrl, ticket, getConfig())
     .then(response => {
       return response;
@@ -30,7 +30,7 @@ export const postTicket = (ticket) => {
 }
 
 export const deleteTicket = (ticket) => {
-  const apiUrl = config.server + "/tickets/" + ticket.uniqueHash;
+  const apiUrl = config.backendServer + "/tickets/" + ticket.uniqueHash;
   return axios.delete(apiUrl, getConfig())
     .then(response => {
       return response;

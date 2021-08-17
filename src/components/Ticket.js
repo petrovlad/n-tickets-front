@@ -99,7 +99,7 @@ export const Ticket = (props) => {
 
                     <button type="button"
                             className="btn btn-outline-secondary"
-                            onClick={() => {copyToClipboard(`${config.server}/ticket-${ticket.uniqueHash}`)}}
+                            onClick={() => {copyToClipboard(`${config.frontendServer}/ticket-${ticket.uniqueHash}`)}}
                             data-toggle="tooltip" data-placement="right" title="Copy link">
                       <LinkIcon size={16} />
                     </button>
