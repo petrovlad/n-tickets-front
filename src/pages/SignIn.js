@@ -21,7 +21,7 @@ export const SignIn = () => {
   const [err, setErr] = useState(false);
 
   return authContext.signedIn ? (<Redirect to="/"/>) : (
-    <>
+    <div className="pt-4">
       <div className="d-flex justify-content-center text-center">
         <form onSubmit={formSubmitted}>
           <h1 className="h3 mb-3 fw-normal">Sign In!</h1>
@@ -61,6 +61,6 @@ export const SignIn = () => {
         </p>
       </div>
       }
-    </>
+    </div>
   )
 }
