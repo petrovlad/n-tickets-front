@@ -12,11 +12,16 @@ import isEmpty from "../components/util/object-utils";
 export const Tickets = () => {
   const [tickets, setTickets] = useState([]);
   const [flag, setFlag] = useState(false);
+  
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!flag) {
       setFlag(true);
-      getTickets().then(setTickets);
+      getTickets().then((tickets) => {
+        setTickets(tickets);
+        setLoading(false)
+      });
     }
   }, [flag, tickets]);
 
@@ -30,7 +35,7 @@ export const Tickets = () => {
               <div>
                 {signedIn ?
                   <>
-                    {isEmpty(tickets) ?
+                    {loading ?
                       <LinearProgress style={{margin: "10px"}}/>
                       :
                       <>
@@ -50,8 +55,6 @@ export const Tickets = () => {
                   :
                   <Redirect to="/signin"/>}
               </div>
-
-
 
               <ModalForm />
 
