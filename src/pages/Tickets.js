@@ -14,10 +14,12 @@ export const Tickets = () => {
   const [tickets, setTickets] = useState([]);
   const [flag, setFlag] = useState(false);
 
+  useEffect(() => {
     if (!flag) {
       setFlag(true);
       getTickets().then(setTickets);
     }
+  }, [flag, tickets]);
 
   const [selectedTicket, setSelectedTicket] = useState({});
 
