@@ -2,6 +2,7 @@ import React, {useContext, useState} from "react";
 import TicketsContext from "../../context/tickets-context";
 import {postTicket, putTicket} from "../../services/api/tickets-service";
 import {isElement} from "react-dom/test-utils";
+import isEmpty from "../util/object-utils";
 
 export const ModalForm = (props) => {
 
@@ -17,10 +18,6 @@ export const ModalForm = (props) => {
   const contentUpdated = (newValue) => { content = newValue };
   const showWarningUpdated = (newValue) => { showWarning = !showWarning };
   const readsCountUpdated = (newValue) => { readsCount = newValue };
-
-  function isEmpty(obj) {
-    return Object.keys(obj).length === 0;
-  }
 
   const formSubmitted = (event) => {
     event.preventDefault();
