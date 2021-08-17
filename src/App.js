@@ -7,6 +7,7 @@ import {SignUp} from "./pages/SignUp";
 import {Navbar} from "./components/Navbar";
 import {ShowTicket} from "./pages/ShowTicket";
 import {ErrorPage} from "./pages/ErrorPage";
+import {Footer} from "./components/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path={""} component={ErrorPage}/>
           </Switch>
         </div>
+        <Footer />
       </BrowserRouter>
   );
 }
